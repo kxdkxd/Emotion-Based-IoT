@@ -47,9 +47,9 @@ net.setPreferableTarget(cv2.dnn.DNN_TARGET_CUDA)
 def detect_faces(frame, showFrame=True):
     #if isinstance(None, frame):
     #    print('[i] ==> Done processing!!!')
-    # Create a 4D blob from a frame.
-    blob = cv2.dnn.blobFromImage(frame, 1 / 255, (IMG_WIDTH, IMG_HEIGHT),
-                                 [0, 0, 0], 1, crop=False)
+    # Create a 4D blob from a frame.    （image, scalefactor=None, size=None, mean=None, swapRB=None, crop=None,
+    blob = cv2.dnn.blobFromImage(image=frame, scalefactor=1 / 255, size=(IMG_WIDTH, IMG_HEIGHT),
+                                 mean=[0, 0, 0], swapRB=1, crop=False)
 
     # Sets the input to the network
     net.setInput(blob)
